@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--自动装配
+            使用 autowire 标签
+            byName 根据名称查询
+            -->
+    <bean id="teacher" class="com.dhy.spring5.collectionType.Teacher" autowire="byName">
+        <!--手动装配-->
+<!--        <property name="stu" ref="stu"></property>-->
+    </bean>
+
+    <bean id="stu" class="com.dhy.spring5.collectionType.Stu"></bean>
+</beans>

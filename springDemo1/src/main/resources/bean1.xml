@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--配置User对象创建-->
+    <bean id="User" class="com.dhy.spring5.User"></bean>
+
+    <!--set方法注入属性依赖-->
+    <bean id="Student" class="com.dhy.spring5.Student">
+        <property name="age" value="14"></property>
+        <property name="name" value="tom"></property>
+        <!--设置属性为null,但数值型不行-->
+        <property name="hobby">
+            <null/>
+        </property>
+    </bean>
+
+    <!--有参构造注入属性依赖-->
+    <bean id="order" class="com.dhy.spring5.Order">
+        <!--属性包含特殊符号,如 <<PEPSI>>
+            1把<>进行转义(如&lt;  &gt;)
+            2把带特殊符号的内容，写到CDATA-->
+        <constructor-arg name="name">
+            <value><![CDATA[<<PEPSI>>]]></value>
+        </constructor-arg>
+<!--        <constructor-arg name="name" value="pepsi"></constructor-arg>-->
+        <constructor-arg name="price" value="3"></constructor-arg>
+        <!--index代表对象中的字段的顺序，0代表第一个变量-->
+    </bean>
+</beans>
